@@ -1,0 +1,41 @@
+﻿ @model Usuario
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+<div class="text-center">
+    <h1 class="display-4">Editar usuario</h1>
+</div>
+<form asp-controller="Usuario" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="mb-3">
+        <label class="form-label">Id Empresa: </label>
+        <input type="text" asp-for="@Model.IdEmpresa" class="form-control" id="IdEmpresa1" />
+        @Html.ValidationMessageFor(e=> e.IdEmpresa)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nome Usuario: </label>
+        <input type="text" asp-for="@Model.NomeUsuario" class="form-control" id="NomeUsuario1" />
+        @Html.ValidationMessageFor(e=> e.NomeUsuario)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Senha: </label>
+        <input type="password" asp-for="@Model.Senha" class="form-control" id="Senha1" />
+        @Html.ValidationMessageFor(e=> e.Senha)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Documentacao Usuario: </label>
+        <input type="text" asp-for="@Model.DocumentoUsuario" class="form-control" id="DocumentacaoUsuario1" />
+        @Html.ValidationMessageFor(e=> e.DocumentoUsuario)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data Criação: </label>
+        <input type="date" asp-for="@Model.DataCriacao" class="form-control" id="DataCriacao1" />
+        @Html.ValidationMessageFor(e=> e.DataCriacao)
+    </div>
+ 
+    <br />
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index" role="button">Cancelar</a>
+</form>

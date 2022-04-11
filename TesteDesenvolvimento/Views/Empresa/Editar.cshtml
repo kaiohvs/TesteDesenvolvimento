@@ -1,0 +1,31 @@
+﻿ @model Empresa
+
+@{
+    ViewData["Title"] = "Editar empresas";
+}
+<div class="text-center">
+    <h1 class="display-4">Editar empresas</h1>
+</div>
+<form asp-controller="Empresa" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="mb-3">
+        <label class="form-label">Nome da empresa</label>
+        <input type="text" asp-for="@Model.NomeEmpresa" class="form-control" id="NomeEmpresa" />
+        @Html.ValidationMessageFor(e=> e.NomeEmpresa)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Documento Empresa</label>
+        <input type="text" asp-for="@Model.DocumentoEmpresa" class="form-control" id="DocumentoEmpresa" />
+        @Html.ValidationMessageFor(e=> e.DocumentoEmpresa)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data Criacao</label>
+        <input type="date" asp-for="@Model.DataCriacao" class="form-control" id="DataCriacao" />
+        @Html.ValidationMessageFor(e=> e.DataCriacao)
+    </div>
+ 
+    <br />
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="btn btn-secondary" asp-controller="Empresa" asp-action="Index" role="button">Cancelar</a>
+</form>

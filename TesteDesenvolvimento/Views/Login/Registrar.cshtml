@@ -1,0 +1,36 @@
+﻿@model Usuario
+
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Cadastro de usuario";
+}
+<div class="text-center">
+    <h1 class="display-4">Cadastro de usuarios</h1>
+</div>
+
+<form class="container2" asp-controller="Login" asp-action="Registrar" method="post">  
+    
+    <div class="mb-3">
+        <label class="form-label">Nome: </label>
+        <input type="text" asp-for="@Model.NomeUsuario" class="form-control" id="NomeUsuario1" />
+        @Html.ValidationMessageFor(e=> e.NomeUsuario)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Senha: </label>
+        <input type="password" asp-for="@Model.Senha" class="form-control" id="SenhaUsuario1" />
+        @Html.ValidationMessageFor(e=> e.Senha)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Documento Usuario: </label>
+        <input type="text" asp-for="@Model.DocumentoUsuario" class="form-control" id="DocumentoUsuario1" />
+        @Html.ValidationMessageFor(e=> e.DocumentoUsuario)
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Data Criacao</label>
+        <input type="date" asp-for="@Model.DataCriacao" class="form-control" id="DataCriacao3" />
+        @Html.ValidationMessageFor(e=> e.DataCriacao)
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-secondary" asp-controller="Login" asp-action="Index">Cancelar</button>
+</form>
